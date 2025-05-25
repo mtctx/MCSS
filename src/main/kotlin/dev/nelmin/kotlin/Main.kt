@@ -25,12 +25,6 @@ class Main {
                 description = "A simple tool to setup a Minecraft Server"
             }
 
-            command("t") {
-                action {
-                    println(VersionFetcher.paper())
-                }
-            }
-
             command("start") {
                 description = "Setup a Minecraft Server"
 
