@@ -31,6 +31,9 @@ class Main {
                 argument("software", "The Server Software (Paper, Spigot, ...)")
                 argument("version", "The Server Version")
                 argument("accept-eula", "Accepts the Minecraft EULA")
+                argument("path", "The Path to the Server Folder")
+                argument("memory", "The amount of memory the server should have (Default = 4)")
+                argument("gui", "Enables the server gui")
 
                 action {
                     val software = get("software")
@@ -104,8 +107,8 @@ class Main {
                         }
                     }
 
-                    val memoryInGB = readInput("How much memory should the server have? (In GB, Default = 4)").toIntOrNull() ?: 4
-                    val gui = confirm("Do you want to enable the server gui?")
+                    val memoryInGB = get("memory")?.toIntOrNull() ?: readInput("How much memory should the server have? (In GB, Default = 4)").toIntOrNull() ?: 4
+                    val gui = get("gui")?.toBoolean() ?: confirm("Do you want to enable the server gui?")
 
                     if (software == "velocity") {
                         CreateServer.proxy(path, javaPath, memoryInGB, gui)
