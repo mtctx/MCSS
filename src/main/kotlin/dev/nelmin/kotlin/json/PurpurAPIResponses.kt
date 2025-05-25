@@ -1,30 +1,13 @@
 package dev.nelmin.kotlin.json
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonIgnoreUnknownKeys
 
+@OptIn(ExperimentalSerializationApi::class)
+@JsonIgnoreUnknownKeys
 @Serializable
-data class PaperVersionResponse(
-    @SerialName("project_id")
-    val projectId: String,
-    @SerialName("project_name")
-    val projectName: String,
-    val version: String,
-    val builds: List<Int>
-) {
-    fun getLatestBuild(): Int {
-        if (builds.isEmpty()) return 1
-        return builds.max()
-    }
-}
-
-@Serializable
-data class PaperProjectResponse(
-    @SerialName("project_id")
-    val projectId: String,
-    @SerialName("project_name")
-    val projectName: String,
-    @SerialName("version_groups")
-    val versionGroups: List<String> = listOf(),
+data class PurpurProjectResponse(
     val versions: List<String> = listOf(),
 )
