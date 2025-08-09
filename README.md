@@ -1,4 +1,5 @@
 # Minecraft Server Setup
+**UNMAINTAINED**: This project should still work, but currently its unmaintained.
 
 A command-line tool to simplify the setup of a Minecraft Server. This tool helps you download the server software, configure basic settings, and generate the necessary startup scripts.
 
